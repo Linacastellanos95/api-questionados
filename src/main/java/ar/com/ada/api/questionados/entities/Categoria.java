@@ -1,0 +1,46 @@
+package ar.com.ada.api.questionados.entities;
+
+import javax.persistence.*;
+
+
+@Entity
+@Table(name = "categoria")
+public class Categoria {
+
+    @Id
+    @Column(name = "categoria_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer categoriaId;
+
+    private String nombre;
+
+    private String descripcion;
+
+    public Integer getCategoriaId() {
+        return categoriaId;
+    }
+
+    public void setCategoriaId(Integer categoriaId) {
+        this.categoriaId = categoriaId;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+
+
+    
+}
