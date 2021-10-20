@@ -39,11 +39,11 @@ public class Respuesta {
         this.texto = texto;
     }
     
-    public Boolean getEsCorrecta() {
+    public boolean isEsCorrecta() {
         return esCorrecta;
     }
 
-    public void setEsCorrecta(Boolean esCorrecta) {
+    public void setisEsCorrecta(boolean esCorrecta) {
         this.esCorrecta = esCorrecta;
     }
 
