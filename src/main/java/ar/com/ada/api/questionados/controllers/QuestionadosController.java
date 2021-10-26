@@ -5,7 +5,9 @@ import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 import ar.com.ada.api.questionados.entities.Pregunta;
+import ar.com.ada.api.questionados.entities.Respuesta;
 import ar.com.ada.api.questionados.models.request.RespuestaAVerificar;
+import ar.com.ada.api.questionados.models.response.OpcionPregunta;
 import ar.com.ada.api.questionados.models.response.PreguntaAResolver;
 import ar.com.ada.api.questionados.models.response.RespuestaVerificada;
 import ar.com.ada.api.questionados.services.QuestionadosService;
@@ -20,11 +22,13 @@ public class QuestionadosController {
 
     //GET /questionados/next
     @GetMapping("/questionados/next")
-    public ResponseEntity<Pregunta> traerPreguntaRandom() {
+    public ResponseEntity<PreguntaAResolver> traerPreguntaRandom() {
 
-        Pregunta proximaPregunta = service.traerPreguntaRandom();
+        Pregunta pregunta = service.traerPreguntaRandom();
 
-        return ResponseEntity.ok(proximaPregunta);
+        PreguntaAResolver preguntaAResolver = PreguntaAResolver.convertirDesde(pregunta);
+
+        return ResponseEntity.ok(preguntaAResolver);
 
 
         //return ResponseEntity.ok(service.traerPreguntaRandom());
